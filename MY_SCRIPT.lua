@@ -247,71 +247,6 @@ end
 
 wait(0.2)
 
---se
-local BLOX_FRUITS_GAME_ID = 2753915549 
-local SECOND_SEA_GAME_ID = 4442272183 
-local THIRD_SEA_GAME_ID = 7449423635 
-
-
-local currentGameId = game.PlaceId
-if currentGameId == BLOX_FRUITS_GAME_ID or currentGameId == SECOND_SEA_GAME_ID or currentGameId == THIRD_SEA_GAME_ID then
-    
-
-    local block = Instance.new("Part")
-    block.Size = Vector3.new(500, 2.1, 500)
-    block.Anchored = true
-    block.Position = Vector3.new(0, 0, 0)
-    block.Parent = workspace
-
-    block.Transparency = 1
-    block.CanCollide = true
-
-    local player = game.Players.LocalPlayer
-
-    
-    local function updateBlockPosition(character)
-        local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-        
-        local connection
-        connection = game:GetService("RunService").RenderStepped:Connect(function()
-            if character and humanoidRootPart then
-                local playerPosition = humanoidRootPart.Position
-                block.Position = Vector3.new(playerPosition.X, -5, playerPosition.Z)
-
-                
-                if humanoidRootPart.Position.Y > block.Position.Y + block.Size.Y / 2 then
-                    block.CanCollide = true 
-                else
-                    block.CanCollide = false 
-                end
-            end
-        end)
-
-        
-        player.CharacterRemoving:Connect(function()
-            
-            if connection then
-                connection:Disconnect()
-            end
-        end)
-    end
-
-    
-    player.CharacterAdded:Connect(function(character)
-        updateBlockPosition(character)
-    end)
-
-    
-    if player.Character then
-        updateBlockPosition(player.Character)
-    end
-else
-    warn("Script này chỉ hoạt động trong game Blox Fruits.")
-end
-
-wait(0.2)
-
 --SHOP
 local player = game.Players.LocalPlayer
 local gui = Instance.new("ScreenGui", player.PlayerGui)
@@ -462,9 +397,6 @@ closeButton.MouseButton1Click:Connect(function()
     --loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/ADMIN_WARN/refs/heads/main/ADMIN_WARN"))()
     wait(0.2)
 	print("ADMIN WARN SUCCESS✅")
-    --FAST ATTACK
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/CHECK_SEVER_FAST_ATTACK/refs/heads/main/CHECK_SEVER_FAST_ATTACK"))()
-	print("FAST ATTACK SUCCESS✅")
 end)
 
 wait(0.2)
