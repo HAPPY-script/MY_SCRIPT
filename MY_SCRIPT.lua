@@ -386,7 +386,7 @@ closeButton.MouseButton1Click:Connect(function()
     wait(0.2)
 	print("shader SUCCESS✅")
     --escape
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/ESCAPE/refs/heads/main/select_escape.lua"))()
+    --loadstring(game:HttpGet("https://raw.githubusercontent.com/HAPPY-script/ESCAPE/refs/heads/main/select_escape.lua"))()
     wait(0.2)
 	print("escape SUCCESS✅")
     --AFK
